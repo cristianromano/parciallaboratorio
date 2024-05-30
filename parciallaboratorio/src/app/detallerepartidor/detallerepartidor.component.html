@@ -1,0 +1,32 @@
+<div class="full-background">
+  <div class="container mt-4">
+    <h1 class="mb-4">Detalle de Repartidores</h1>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <!-- Iterar sobre la lista de repartidores -->
+          <li class="list-group-item repartidor-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 *ngIf="repartidorSeleccionado" class="mb-0">
+                  {{ repartidorSeleccionado?.nombre }}
+                </h5>
+                <p *ngIf="repartidorSeleccionado" class="text-muted mb-1">
+                  Edad: {{ repartidorSeleccionado.edad }}
+                </p>
+                <p *ngIf="repartidorSeleccionado" class="text-muted mb-0">
+                  País: {{ repartidorSeleccionado.pais }}
+                </p>
+                <p *ngIf="repartidorSeleccionado" class="text-muted mb-0">
+                  Unidad propia:
+                  {{ repartidorSeleccionado.unidadPropia ? "Sí" : "No" }}
+                </p>
+              </div>
+            </div>
+          </li>
+          <!-- Fin de la iteración -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { authguardGuard } from '../guards/authguard.guard';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 export const routes: Routes = [
-  { path: '', component: BienvenidaComponent },
+  { path: '', redirectTo: 'bienvenida', pathMatch: 'full' },
   { path: 'bienvenida', component: BienvenidaComponent },
   {
     path: 'login',
@@ -24,4 +25,13 @@ export const routes: Routes = [
       ),
     canActivate: [authguardGuard],
   },
+  {
+    path: 'listarepartidores',
+    loadComponent: () =>
+      import('./listarepartidores/listarepartidores.component').then(
+        (m) => m.ListarepartidoresComponent
+      ),
+    canActivate: [authguardGuard],
+  },
+  { path: '**', component: NotfoundComponent },
 ];

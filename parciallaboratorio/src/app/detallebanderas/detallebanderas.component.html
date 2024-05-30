@@ -1,0 +1,38 @@
+<div class="full-background">
+  <div class="container mt-4">
+    <h1 class="mb-4">Detalle Bandera</h1>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <!-- Iterar sobre la lista de repartidores -->
+          <li class="list-group-item repartidor-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <img
+                  *ngIf="banderaSeleccionada"
+                  class="mb-0"
+                  [src]="banderaSeleccionada.bandera"
+                  alt="{{ banderaSeleccionada.nombre }}"
+                  class="me-3"
+                  width="50"
+                  height="30"
+                />
+
+                <p *ngIf="banderaSeleccionada" class="text-muted mb-1">
+                  Pais: {{ banderaSeleccionada.nombre }}
+                </p>
+                <p *ngIf="banderaSeleccionada" class="text-muted mb-1">
+                  Capital: {{ banderaSeleccionada.capital }}
+                </p>
+                <p *ngIf="banderaSeleccionada" class="text-muted mb-1">
+                  Habitantes: {{ banderaSeleccionada.population }}
+                </p>
+              </div>
+            </div>
+          </li>
+          <!-- Fin de la iteración -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

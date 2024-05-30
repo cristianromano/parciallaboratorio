@@ -1,0 +1,18 @@
+.repartidor-item {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.repartidor-item:hover {
+  transform: scale(1.02);
+}
+
+:host {
+  display: block; /* Ensures the :host element is block-level */
+  background-image: url("/assets/helados.png"); /* Background image */
+}
+
+.full-background {
+  width: 100vw;
+  height: 100vh;
+}

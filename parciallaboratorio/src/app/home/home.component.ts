@@ -18,4 +18,8 @@ export class HomeComponent {
   irRepartidor() {
     this.router.navigate(['/altarepartidor']);
   }
+
+  irListaRepartidores() {
+    this.router.navigate(['/listarepartidores']);
+  }
 }
