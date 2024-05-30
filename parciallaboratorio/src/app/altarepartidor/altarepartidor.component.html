@@ -1,0 +1,110 @@
+<div class="full-background">
+  <app-navbar></app-navbar>
+  <div
+    class="container-fluid d-flex justify-content-evenly align-items-center mt-5"
+  >
+    <div class="card p-4 shadow">
+      <h2 class="text-center mb-4">Formulario de Repartidor</h2>
+      <form [formGroup]="repartidorForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="dni" class="form-label">DNI:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="dni"
+            formControlName="dni"
+          />
+          <div
+            *ngIf="repartidorForm.get('dni')?.errors?.['pattern']"
+            class="text-danger"
+          >
+            El DNI debe contener exactamente 8 números.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            formControlName="nombre"
+          />
+          <div
+            *ngIf="repartidorForm.get('nombre')?.errors?.['pattern']"
+            class="text-danger"
+          >
+            El nombre solo acepta letras.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="edad" class="form-label">Edad:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="edad"
+            formControlName="edad"
+          />
+          <div
+            *ngIf="
+                  repartidorForm.get('edad')?.errors?.['min'] ||
+                  repartidorForm.get('edad')?.errors?.['max']
+                "
+            class="text-danger"
+          >
+            La edad debe estar en el rango de 18 a 99.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="capacidad" class="form-label"
+            >Capacidad de Transporte (unidades de potes de helados):</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="capacidad"
+            formControlName="capacidad"
+          />
+          <div
+            *ngIf="
+                repartidorForm.get('capacidad')?.errors?.['min'] ||
+                repartidorForm.get('capacidad')?.errors?.['max']
+              "
+            class="text-danger"
+          >
+            la capacidad debe estar en el rango de 1 a 10.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="pais" class="form-label">País de Origen:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="pais"
+            formControlName="pais"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="unidadPropia" class="form-label">Unidad Propia:</label>
+          <select
+            class="form-select"
+            id="unidadPropia"
+            formControlName="unidadPropia"
+          >
+            <option [ngValue]="true">Sí</option>
+            <option [ngValue]="false">No</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!repartidorForm?.valid"
+        >
+          Guardar
+        </button>
+      </form>
+    </div>
+    <app-banderas
+      (banderaSeleccionada)="onBanderaSeleccionada($event)"
+    ></app-banderas>
+  </div>
+</div>

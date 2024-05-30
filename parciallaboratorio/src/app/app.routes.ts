@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+import { authguardGuard } from '../guards/authguard.guard';
 
 export const routes: Routes = [
   { path: '', component: BienvenidaComponent },
@@ -13,5 +14,14 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./home/home.component').then((m) => m.HomeComponent),
+    canActivate: [authguardGuard],
+  },
+  {
+    path: 'altarepartidor',
+    loadComponent: () =>
+      import('./altarepartidor/altarepartidor.component').then(
+        (m) => m.AltarepartidorComponent
+      ),
+    canActivate: [authguardGuard],
   },
 ];

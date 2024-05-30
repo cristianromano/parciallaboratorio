@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Lista de Banderas</h1>
+  <ul class="list-group">
+    <li
+      *ngFor="let bandera of banderas"
+      class="list-group-item d-flex align-items-center bandera-item"
+      (click)="selectBandera(bandera)"
+    >
+      <img
+        [src]="bandera.bandera"
+        alt="{{ bandera.nombre }}"
+        class="me-3"
+        width="50"
+        height="30"
+      />
+      <span>{{ bandera.nombre }}</span>
+    </li>
+  </ul>
+</div>
