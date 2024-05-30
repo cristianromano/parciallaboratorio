@@ -1,0 +1,57 @@
+:host {
+  background-color: black; /* Replace with your desired color */
+}
+
+.position-relative {
+  width: 600px;
+  height: 400px;
+  background-image: url("/assets/mario.jpg");
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.full-background {
+  width: 100vw;
+  height: 100vh;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+:host {
+  display: block; /* Ensures the :host element is block-level */
+  background-image: url("/assets/helados.png"); /* Background image */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Adjustments for tablets and below */
+  .full-background form {
+    width: 90%; /* Makes the form take up most of the screen */
+    margin: 0 auto; /* Centers the form horizontally */
+  }
+
+  .position-relative {
+    position: static; /* Override Bootstrap positioning if necessary */
+  }
+
+  .d-flex {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+  }
+
+  .btn {
+    margin-bottom: 10px; /* Adds space between buttons when stacked */
+    width: 100%; /* Full width buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjustments for small devices */
+  .full-background form {
+    width: 95%; /* Even more width for very small devices */
+  }
+}

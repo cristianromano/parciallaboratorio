@@ -1,0 +1,55 @@
+<div class="full-background">
+  <form
+    class="position-relative position-absolute top-50 start-50 translate-middle"
+    [formGroup]="userFormulario"
+    (ngSubmit)="login()"
+  >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div id="emailHelp" class="form-text">
+        Nunca compartiremos tu correo electrónico con nadie más.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+    <div class="d-flex justify-content-evenly p-5">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!userFormulario.valid"
+      >
+        Login
+      </button>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button
+        type="button"
+        class="btn btn btn-warning me-3"
+        (click)="loginRapidoUno()"
+      >
+        Admin
+      </button>
+      <button
+        type="button"
+        class="btn btn btn-warning"
+        (click)="loginRapidoDos()"
+      >
+        User
+      </button>
+    </div>
+  </form>
+</div>
