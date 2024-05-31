@@ -1,0 +1,36 @@
+<div class="full-background">
+  <div class="container mt-4">
+    <h1 class="mb-4">Listado de Helados</h1>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <!-- Iterar sobre la lista de helados -->
+          <li
+            class="list-group-item"
+            *ngFor="let helado of helados"
+            (click)="selectHelado(helado)"
+          >
+            <div
+              class="d-flex flex-row justify-content-center align-items-center"
+            >
+              <div>
+                <p class="mb-1"><strong>Nombre:</strong> {{ helado.nombre }}</p>
+                <p class="mb-1"><strong>Precio:</strong> {{ helado.precio }}</p>
+                <p class="mb-1">
+                  <strong>Peso:</strong> {{ helado.peso }} gramos
+                </p>
+                <p class="mb-1">
+                  <strong>Tipo:</strong> {{ helado.tipoHelado }}
+                </p>
+              </div>
+            </div>
+          </li>
+          <!-- Fin de la iteración -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <app-borrarhelado
+    [heladoSeleccionado]="this.selectedHelado"
+  ></app-borrarhelado>
+</div>

@@ -22,4 +22,8 @@ export class HomeComponent {
   irListaRepartidores() {
     this.router.navigate(['/listarepartidores']);
   }
+
+  irHelados() {
+    this.router.navigate(['/helados']);
+  }
 }

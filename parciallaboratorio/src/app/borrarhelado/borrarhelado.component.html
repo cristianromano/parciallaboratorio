@@ -1,0 +1,34 @@
+<div class="full-background">
+  <div class="container mt-4">
+    <h1 class="mb-4">Borrar helado</h1>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <!-- Iterar sobre la lista de helados -->
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="mb-1" *ngIf="heladoSeleccionado">
+                  <strong>Nombre:</strong> {{ heladoSeleccionado.nombre }}
+                </p>
+                <p class="mb-1" *ngIf="heladoSeleccionado">
+                  <strong>Precio:</strong> {{ heladoSeleccionado.precio }}
+                </p>
+                <p class="mb-1" *ngIf="heladoSeleccionado">
+                  <strong>Peso:</strong> {{ heladoSeleccionado.peso }} gramos
+                </p>
+                <p class="mb-1" *ngIf="heladoSeleccionado">
+                  <strong>Tipo:</strong> {{ heladoSeleccionado.tipoHelado }}
+                </p>
+              </div>
+              <button class="btn btn-danger" (click)="borrarHelado()">
+                Borrar
+              </button>
+            </div>
+          </li>
+          <!-- Fin de la iteración -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="full-background">
+  <app-navbar></app-navbar>
+  <div
+    class="container-fluid d-flex justify-content-evenly align-items-center mt-5"
+  >
+    <div class="card p-4 shadow">
+      <h2 class="text-center mb-4">Formulario de Helados</h2>
+      <form [formGroup]="heladosForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="precio"
+            formControlName="precio"
+          />
+          <div
+            *ngIf="heladosForm.get('precio')?.errors?.['pattern']"
+            class="text-danger"
+          >
+            El precio debe contener numeros
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            formControlName="nombre"
+          />
+          <div
+            *ngIf="heladosForm.get('nombre')?.errors?.['pattern']"
+            class="text-danger"
+          >
+            El nombre solo acepta letras.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="peso" class="form-label">Peso (gramos):</label>
+          <input
+            type="number"
+            class="form-control"
+            id="peso"
+            formControlName="peso"
+          />
+          <div
+            *ngIf="
+                heladosForm.get('peso')?.errors?.['min'] ||
+                heladosForm.get('peso')?.errors?.['max']
+              "
+            class="text-danger"
+          >
+            El peso debe estar en el rango de 250 a 1000 gramos.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="tipoHelado" class="form-label">Tipo de Helado:</label>
+          <select
+            class="form-select"
+            id="tipoHelado"
+            formControlName="tipoHelado"
+          >
+            <option value="agua">Agua</option>
+            <option value="crema">Crema</option>
+          </select>
+          <div
+            *ngIf="heladosForm.get('tipoHelado')?.errors?.['required']"
+            class="text-danger"
+          >
+            El tipo de helado es requerido.
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!heladosForm?.valid"
+        >
+          Guardar
+        </button>
+      </form>
+    </div>
+    <app-listarhelados></app-listarhelados>
+  </div>
+</div>

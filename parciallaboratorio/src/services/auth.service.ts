@@ -23,10 +23,8 @@ export class AuthService {
       getDocs(collection(this.firestore, 'users'))
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(doc.data());
             if (doc.data()['email'] == this.auth.currentUser?.email) {
               if (doc.data()['admin'] == 'true') {
-                console.log('en admin');
                 resolve(true); // Return true if user is admin
               }
             }

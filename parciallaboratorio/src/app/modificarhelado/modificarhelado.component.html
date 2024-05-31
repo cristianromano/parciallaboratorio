@@ -1,0 +1,41 @@
+<h2 class="mb-4">Editar Helado</h2>
+<form [formGroup]="heladoForm">
+  <!-- Agrega campos de formulario para editar el helado -->
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      formControlName="nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="precio" class="form-label">Precio:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="precio"
+      formControlName="precio"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="peso" class="form-label">Peso:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="peso"
+      formControlName="peso"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="tipoHelado" class="form-label">Tipo de Helado:</label>
+    <select class="form-select" id="tipoHelado" formControlName="tipoHelado">
+      <option value="agua">Agua</option>
+      <option value="crema">Crema</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="guardar()">
+    Guardar Cambios
+  </button>
+</form>

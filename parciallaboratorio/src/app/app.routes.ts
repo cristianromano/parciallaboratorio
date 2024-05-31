@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { authguardGuard } from '../guards/authguard.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { authadminGuard } from '../guards/authadmin.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'bienvenida', pathMatch: 'full' },
@@ -32,6 +33,12 @@ export const routes: Routes = [
         (m) => m.ListarepartidoresComponent
       ),
     canActivate: [authguardGuard],
+  },
+  {
+    path: 'helados',
+    loadComponent: () =>
+      import('./helados/helados.component').then((m) => m.HeladosComponent),
+    canActivate: [authadminGuard],
   },
   { path: '**', component: NotfoundComponent },
 ];
